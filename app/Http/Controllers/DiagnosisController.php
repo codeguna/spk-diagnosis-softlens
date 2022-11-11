@@ -70,12 +70,37 @@ class DiagnosisController extends Controller
 
         if ($G001 == 1 && $G002 == 1 && $G003 == 1) {
             $hasil = "Noda Kornea";
+            $saran = "";
         } elseif ($G003 == 1 && $G004 == 1 && $G006  == 1 && $G007 == 1 && $G008 == 1 && $G009 == 1) {
             $hasil = "Blepharitis";
+            $saran = "";
         } elseif ($G004 == 1 && $G005 == 1 && $G021  == 1) {
             $hasil = "Reaksi Alergi";
+            $saran = "";
+        } elseif ($G010 == 1 && $G011 == 1 && $G012  == 1) {
+            $hasil = "Sindrom mata kering";
+            $saran = "";
+        } elseif ($G001 == 1 && $G002 == 1 && $G003  == 1 && $G008  == 1 && $G013  == 1 && $G014  == 1 && $G021  == 1) {
+            $hasil = "Corneal Edema";
+            $saran = "";
+        } elseif ($G003 == 1 && $G009 == 1 && $G012  == 1 && $G013  == 1 && $G021  == 1) {
+            $hasil = "Infeksi mata";
+            $saran = "";
+        } elseif ($G002 == 1 && $G013 == 1 && $G016  == 1 && $G021  == 1) {
+            $hasil = "Infitrates";
+            $saran = "";
+        } elseif ($G002 == 1 && $G002 == 1 && $G012  == 1 && $G015  == 1 && $G017  == 1 && $G018  == 1 && $G021  == 1) {
+            $hasil = "Macrobila Keratitis";
+            $saran = "";
+        } elseif ($G008 == 1 && $G015 == 1) {
+            $hasil = "Vaskularisasi Kornea";
+            $saran = "";
+        } elseif ($G004 == 1 && $G005 == 1 && $G015 == 1 && $G019 == 1 && $G020 == 1) {
+            $hasil = "Giant Papilary Conjunctivitas";
+            $saran = "";
         } else {
-            $hasil = "Tidak Diketahui";
+            $hasil = "Tidak Diketahui/Anda baik-baik saja";
+            $saran = "Tidak ada";
         }
 
         return $hasil;
