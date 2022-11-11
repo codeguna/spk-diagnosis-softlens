@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diagnosis;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 /**
@@ -31,8 +32,10 @@ class DiagnosisController extends Controller
      */
     public function create()
     {
-        $diagnosis = new Diagnosis();
-        return view('diagnosis.create', compact('diagnosis'));
+
+        $questions = Question::all();
+
+        return view('diagnosis.create', compact('questions'))->with('i');
     }
 
     /**
@@ -43,9 +46,47 @@ class DiagnosisController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Diagnosis::$rules);
+        $G001 = $request->G001;
+        $G002 = $request->G002;
+        $G003 = $request->G003;
+        $G004 = $request->G004;
+        $G005 = $request->G005;
+        $G006 = $request->G006;
+        $G007 = $request->G007;
+        $G008 = $request->G008;
+        $G009 = $request->G009;
+        $G010 = $request->G010;
+        $G011 = $request->G011;
+        $G012 = $request->G012;
+        $G013 = $request->G013;
+        $G014 = $request->G014;
+        $G015 = $request->G015;
+        $G016 = $request->G016;
+        $G017 = $request->G017;
+        $G018 = $request->G018;
+        $G019 = $request->G019;
+        $G020 = $request->G020;
+        $G021 = $request->G021;
 
-        $diagnosis = Diagnosis::create($request->all());
+        if ($G001 == 1 && $G002 == 1 && $G003 == 1) {
+            $hasil = "Noda Kornea";
+        } elseif ($G003 == 1 && $G004 == 1 && $G006  == 1 && $G007 == 1 && $G008 == 1 && $G009 == 1) {
+            $hasil = "Blepharitis";
+        } elseif ($G004 == 1 && $G005 == 1 && $G021  == 1) {
+            $hasil = "Reaksi Alergi";
+        } else {
+            $hasil = "Tidak Diketahui";
+        }
+
+        return $hasil;
+        $diagnosis = Diagnosis::create([
+            'user_id'           => $request->user_id,
+            'nama_pasien'       => $request->nama_pasien,
+            'alamat'            => $request->alamat,
+            'tanggal'           => $request->tanggal,
+            'hasil'             => $hasil,
+            'saran'             => $saran
+        ]);
 
         return redirect()->route('admin.diagnoses.index')
             ->with('success', 'Diagnosis created successfully.');
