@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('template_title')
     Diagnosis
@@ -16,11 +16,12 @@
                                 {{ __('Diagnosis') }}
                             </span>
 
-                             <div class="float-right">
-                                <a href="{{ route('diagnoses.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                            <div class="float-right">
+                                <a href="{{ route('admin.diagnoses.create') }}" class="btn btn-primary btn-sm float-right"
+                                    data-placement="left">
+                                    {{ __('Create New') }}
                                 </a>
-                              </div>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -35,15 +36,14 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
-										<th>User Id</th>
-										<th>Nama Pasien</th>
-										<th>Jenis Kelamin</th>
-										<th>Alamat</th>
-										<th>Tanggal</th>
-										<th>Hasil</th>
-										<th>Saran</th>
 
+                                        <th>Petugas</th>
+                                        <th>Nama Pasien</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Alamat</th>
+                                        <th>Tanggal</th>
+                                        <th>Hasil</th>
+                                        <th>Saran</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -51,22 +51,30 @@
                                     @foreach ($diagnoses as $diagnosis)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $diagnosis->user_id }}</td>
-											<td>{{ $diagnosis->nama_pasien }}</td>
-											<td>{{ $diagnosis->jenis_kelamin }}</td>
-											<td>{{ $diagnosis->alamat }}</td>
-											<td>{{ $diagnosis->tanggal }}</td>
-											<td>{{ $diagnosis->hasil }}</td>
-											<td>{{ $diagnosis->saran }}</td>
+
+                                            <td>{{ $diagnosis->user_id }}</td>
+                                            <td>{{ $diagnosis->nama_pasien }}</td>
+                                            <td>{{ $diagnosis->jenis_kelamin }}</td>
+                                            <td>{{ $diagnosis->alamat }}</td>
+                                            <td>{{ $diagnosis->tanggal }}</td>
+                                            <td>{{ $diagnosis->hasil }}</td>
+                                            <td>
+                                                <textarea class="form-control">{{ $diagnosis->saran }}</textarea>
+                                            </td>
 
                                             <td>
-                                                <form action="{{ route('diagnoses.destroy',$diagnosis->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('diagnoses.show',$diagnosis->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('diagnoses.edit',$diagnosis->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('admin.diagnoses.destroy', $diagnosis->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-primary "
+                                                        href="{{ route('admin.diagnoses.show', $diagnosis->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success"
+                                                        href="{{ route('admin.diagnoses.edit', $diagnosis->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

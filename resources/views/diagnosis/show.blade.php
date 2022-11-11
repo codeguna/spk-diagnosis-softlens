@@ -14,12 +14,12 @@
                             <span class="card-title">Show Diagnosis</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('diagnoses.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('admin.diagnoses.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <strong>User Id:</strong>
                             {{ $diagnosis->user_id }}

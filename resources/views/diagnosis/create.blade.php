@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('template_title')
     Create Diagnosis
@@ -16,11 +16,13 @@
                         <span class="card-title">Create Diagnosis</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('diagnoses.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.diagnoses.store') }}" role="form"
+                            enctype="multipart/form-data">
                             @csrf
-
-                            @include('diagnosis.form')
-
+                            <div class="row" style="margin-bottom: 1em">
+                                @include('diagnosis.form')
+                            </div>
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-check"></i> Submit</button>
                         </form>
                     </div>
                 </div>

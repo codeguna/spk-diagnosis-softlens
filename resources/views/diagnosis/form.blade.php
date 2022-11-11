@@ -1,44 +1,33 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
-        
-        <div class="form-group">
-            {{ Form::label('user_id') }}
-            {{ Form::text('user_id', $diagnosis->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User Id']) }}
-            {!! $errors->first('user_id', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('nama_pasien') }}
-            {{ Form::text('nama_pasien', $diagnosis->nama_pasien, ['class' => 'form-control' . ($errors->has('nama_pasien') ? ' is-invalid' : ''), 'placeholder' => 'Nama Pasien']) }}
-            {!! $errors->first('nama_pasien', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('jenis_kelamin') }}
-            {{ Form::text('jenis_kelamin', $diagnosis->jenis_kelamin, ['class' => 'form-control' . ($errors->has('jenis_kelamin') ? ' is-invalid' : ''), 'placeholder' => 'Jenis Kelamin']) }}
-            {!! $errors->first('jenis_kelamin', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('alamat') }}
-            {{ Form::text('alamat', $diagnosis->alamat, ['class' => 'form-control' . ($errors->has('alamat') ? ' is-invalid' : ''), 'placeholder' => 'Alamat']) }}
-            {!! $errors->first('alamat', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('tanggal') }}
-            {{ Form::text('tanggal', $diagnosis->tanggal, ['class' => 'form-control' . ($errors->has('tanggal') ? ' is-invalid' : ''), 'placeholder' => 'Tanggal']) }}
-            {!! $errors->first('tanggal', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('hasil') }}
-            {{ Form::text('hasil', $diagnosis->hasil, ['class' => 'form-control' . ($errors->has('hasil') ? ' is-invalid' : ''), 'placeholder' => 'Hasil']) }}
-            {!! $errors->first('hasil', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('saran') }}
-            {{ Form::text('saran', $diagnosis->saran, ['class' => 'form-control' . ($errors->has('saran') ? ' is-invalid' : ''), 'placeholder' => 'Saran']) }}
-            {!! $errors->first('saran', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-
+<div class="col-md-12">
+    <label>Nama Petugas</label>
+    <input class="form-control" type="text" name="user_id" value="{{ Auth::User()->name }}" readonly>
+</div>
+<div class="col-md-12">
+    <label>Nama Pasien</label>
+    <input class="form-control" type="text" name="nama_pasien">
+</div>
+<div class="col-md-6">
+    <label>Jenis Kelamin</label>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="jenis_kelamin" value="1">
+        <label class="form-check-label">
+            Laki-laki
+        </label>
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="jenis_kelamin" value="0">
+        <label class="form-check-label">
+            Perempuan
+        </label>
     </div>
+</div>
+<div class="col-md-6">
+    <div class="mb-3">
+        <label class="form-label">Alamat Pasien</label>
+        <textarea class="form-control" name="alamat" rows="4"></textarea>
+    </div>
+</div>
+<div class="col-md-12">
+    <label>Tanggal Pemeriksaan</label>
+    <input type="date" class="form-control" name="tanggal">
 </div>

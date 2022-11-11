@@ -12,10 +12,15 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route('admin.questions.index') }}" class="nav-link">
-                    <i class="nav-icon fas fa-fw fa-tachometer-alt">
-
-                    </i>
+                    <i class="nav-icon fas fa-bug"></i>
                     Gejala
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.diagnoses.index') }}"
+                    class="nav-link {{ request()->is('admin/diagnoses') || request()->is('admin/diagnoses/*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-stethoscope"></i>
+                    Diagnosis
                 </a>
             </li>
             @can('users_manage')
