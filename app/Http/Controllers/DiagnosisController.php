@@ -78,7 +78,7 @@ class DiagnosisController extends Controller
             $hasil = "Reaksi Alergi";
             $saran = "";
         } elseif ($G010 == 1 && $G011 == 1 && $G012  == 1) {
-            $hasil = "Sindrom mata kering";
+            $hasil = "Sindrom Mata Kering";
             $saran = "";
         } elseif ($G001 == 1 && $G002 == 1 && $G003  == 1 && $G008  == 1 && $G013  == 1 && $G014  == 1 && $G021  == 1) {
             $hasil = "Corneal Edema";
