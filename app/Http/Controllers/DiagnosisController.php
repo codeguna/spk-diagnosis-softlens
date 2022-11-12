@@ -104,10 +104,10 @@ class DiagnosisController extends Controller
             $saran = "Tidak ada";
         }
 
-        return $saran;
         $diagnosis = Diagnosis::create([
             'user_id'           => $request->user_id,
             'nama_pasien'       => $request->nama_pasien,
+            'jenis_kelamin'     => $request->jenis_kelamin,
             'alamat'            => $request->alamat,
             'tanggal'           => $request->tanggal,
             'hasil'             => $hasil,
@@ -140,7 +140,7 @@ class DiagnosisController extends Controller
         $answer->save();
 
         return redirect()->route('admin.diagnoses.index')
-            ->with('success', 'Diagnosis created successfully.');
+            ->with('success', 'Diagnosis Berhasil !');
     }
 
     /**

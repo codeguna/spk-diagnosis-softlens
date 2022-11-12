@@ -5,87 +5,52 @@
 @endsection
 
 @section('content')
+    <a href="{{ route('admin.diagnoses.create') }}" class="float btn-success" title="Create Proposal"
+        style="height: 60px; width:60px">
+        <i class="fa fa-plus my-float" style="margin-top: 20px"></i>
+    </a>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 class="card-title">Diagnosa Pasien</h3>
+                    </div>
+                </div>
+            </div>
 
-                            <span id="card_title">
-                                {{ __('Diagnosis') }}
-                            </span>
-
+            @foreach ($diagnoses as $diagnosis)
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            {{ ++$i }}. {{ $diagnosis->nama_pasien }}
+                            <br />
+                            @if ($diagnosis->jenis_kelamin == 0)
+                                <i class="fas fa-female"></i> Perempuan
+                            @else
+                                <i class="fas fa-male"></i> Laki-laki
+                            @endif
                             <div class="float-right">
-                                <a href="{{ route('admin.diagnoses.create') }}" class="btn btn-primary btn-sm float-right"
-                                    data-placement="left">
-                                    {{ __('Create New') }}
-                                </a>
+                                <form action="{{ route('admin.diagnoses.destroy', $diagnosis->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
-                    </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
+                        <div class="card-body">
+                            <h5 class="card-title text-danger"><i class="fas fa-eye"></i> {{ $diagnosis->hasil }}</h5>
+                            <p class="card-text fst-italic"><i class="fas fa-home"></i> Alamat: {{ $diagnosis->alamat }}</p>
+                            <a href="{{ route('admin.diagnoses.show', $diagnosis->id) }}" class="btn btn-primary"><i
+                                    class="fas fa-book"></i> Hasil Diagnosa</a>
                         </div>
-                    @endif
-
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
-
-                                        <th>Petugas</th>
-                                        <th>Nama Pasien</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Alamat</th>
-                                        <th>Tanggal</th>
-                                        <th>Hasil</th>
-                                        <th>Saran</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($diagnoses as $diagnosis)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-
-                                            <td>{{ $diagnosis->user_id }}</td>
-                                            <td>{{ $diagnosis->nama_pasien }}</td>
-                                            <td>{{ $diagnosis->jenis_kelamin }}</td>
-                                            <td>{{ $diagnosis->alamat }}</td>
-                                            <td>{{ $diagnosis->tanggal }}</td>
-                                            <td>{{ $diagnosis->hasil }}</td>
-                                            <td>
-                                                <textarea class="form-control">{{ $diagnosis->saran }}</textarea>
-                                            </td>
-
-                                            <td>
-                                                <form action="{{ route('admin.diagnoses.destroy', $diagnosis->id) }}"
-                                                    method="POST">
-                                                    <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('admin.diagnoses.show', $diagnosis->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success"
-                                                        href="{{ route('admin.diagnoses.edit', $diagnosis->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i> Edit</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        <div class="card-footer text-muted">
+                            <i class="fas fa-clock"></i> {{ $diagnosis->created_at }}
                         </div>
                     </div>
                 </div>
-                {!! $diagnoses->links() !!}
-            </div>
+            @endforeach
+            {!! $diagnoses->links() !!}
         </div>
-    </div>
-@endsection
+    @endsection

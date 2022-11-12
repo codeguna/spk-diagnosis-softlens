@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('template_title')
     {{ $diagnosis->name ?? 'Show Diagnosis' }}
@@ -19,27 +19,39 @@
                     </div>
 
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <strong>Nama Pasien:</strong>
+                                    {{ $diagnosis->nama_pasien }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <strong>Jenis Kelamin:</strong>
+                                    @if ($diagnosis->jenis_kelamin == 0)
+                                        Perempuan
+                                    @else
+                                        Laki-laki
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <strong>Alamat:</strong>
+                                    {{ $diagnosis->alamat }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <strong>Tanggal:</strong>
+                                    {{ $diagnosis->tanggal }}
+                                </div>
+                            </div>
+                        </div>
 
-                        <div class="form-group">
-                            <strong>User Id:</strong>
-                            {{ $diagnosis->user_id }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Nama Pasien:</strong>
-                            {{ $diagnosis->nama_pasien }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Jenis Kelamin:</strong>
-                            {{ $diagnosis->jenis_kelamin }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Alamat:</strong>
-                            {{ $diagnosis->alamat }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Tanggal:</strong>
-                            {{ $diagnosis->tanggal }}
-                        </div>
+
+
                         <div class="form-group">
                             <strong>Hasil:</strong>
                             {{ $diagnosis->hasil }}
