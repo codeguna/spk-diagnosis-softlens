@@ -1,6 +1,7 @@
 <div class="col-md-12">
     <label>Nama Petugas</label>
-    <input class="form-control" type="text" name="user_id" value="{{ Auth::User()->name }}" readonly>
+    <input type="hidden" name="user_id" value="{{ Auth::User()->id }}">
+    <input class="form-control" type="text" value="{{ Auth::User()->name }}" readonly>
 </div>
 <div class="col-md-12">
     <label>Nama Pasien</label>

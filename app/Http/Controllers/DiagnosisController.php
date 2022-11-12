@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Diagnosis;
 use App\Models\Question;
 use Illuminate\Http\Request;
@@ -70,40 +71,40 @@ class DiagnosisController extends Controller
 
         if ($G001 == 1 && $G002 == 1 && $G003 == 1) {
             $hasil = "Noda Kornea";
-            $saran = "";
+            $saran = "Memberikan kompres dingin ke mata, tetapi jangan sampai mata terkena air.";
         } elseif ($G003 == 1 && $G004 == 1 && $G006  == 1 && $G007 == 1 && $G008 == 1 && $G009 == 1) {
             $hasil = "Blepharitis";
-            $saran = "";
+            $saran = "Selalu jaga kebersihan tangan untuk menghindari infeksi bakteri dan jangan menggaruk mata dengan tangan yang kotor.";
         } elseif ($G004 == 1 && $G005 == 1 && $G021  == 1) {
             $hasil = "Reaksi Alergi";
-            $saran = "";
+            $saran = "Gunakan obat tetes mata yang dapat digunakan untuk mengurangi rasa gatal serta reaksi alergi yang timbul pada mata.";
         } elseif ($G010 == 1 && $G011 == 1 && $G012  == 1) {
             $hasil = "Sindrom Mata Kering";
-            $saran = "";
+            $saran = "Obat pelumas mata (air mata buatan), untuk melembapkan mata dan menggantikan fungsi air mata, jika mata kering masih tergolong ringan dan terjadi sesekali.";
         } elseif ($G001 == 1 && $G002 == 1 && $G003  == 1 && $G008  == 1 && $G013  == 1 && $G014  == 1 && $G021  == 1) {
             $hasil = "Corneal Edema";
-            $saran = "";
+            $saran = "Jika edema kornea ringan, pengobatan mungkin tidak diberikan. Untuk meredakan pembengkakan sementara di mata, dokter mungkin merekomendasikan tetes salep (garam dan air) pekat.";
         } elseif ($G003 == 1 && $G009 == 1 && $G012  == 1 && $G013  == 1 && $G021  == 1) {
             $hasil = "Infeksi mata";
-            $saran = "";
+            $saran = "Dapat diobati dengan antibiotik, baik dalam bentuk tetes mata maupun salep mata. Biasanya akan sembuh dengan sendirinya setelah beberapa hari.";
         } elseif ($G002 == 1 && $G013 == 1 && $G016  == 1 && $G021  == 1) {
             $hasil = "Infitrates";
-            $saran = "";
+            $saran = "Jaga kebersihan area mata. Tidak mengucek mata, sering melakukan cuci tangan bersih dengan sabun, membersihkan make up di area mata, dan mengurangi makanan yang mengandung alergi.";
         } elseif ($G002 == 1 && $G002 == 1 && $G012  == 1 && $G015  == 1 && $G017  == 1 && $G018  == 1 && $G021  == 1) {
             $hasil = "Macrobila Keratitis";
-            $saran = "";
+            $saran = "Keratitis bisa dicegah dengan menjaga kebersihan dan kesehatan mata, serta mencegah cedera pada mata. Salah satu upaya yang dapat dilakukan adalah dengan menggunakan dan merawat lensa kontak dengan benar";
         } elseif ($G008 == 1 && $G015 == 1) {
             $hasil = "Vaskularisasi Kornea";
-            $saran = "";
+            $saran = "Pemberian antibiotik jika penyebab adalah infeksi bakteri dan antivirus jika infeksi virus. Bila kerusakan luas atau menyebabkan gangguan fungsi, maka dapat dipertimbangkan tindakan operasi berupa transplantasi kornea.";
         } elseif ($G004 == 1 && $G005 == 1 && $G015 == 1 && $G019 == 1 && $G020 == 1) {
             $hasil = "Giant Papilary Conjunctivitas";
-            $saran = "";
+            $saran = "Pastikan Anda tidak mengucek mata terlebih bila belum cuci tangan, hindari menggunakan obat mata tanpa melakukan pemeriksaan ke dokter, konsumsi makann bergizi, jaga keberishan diri dan lingkungan dan pastikan sirkulasi udara di rumah Anda bersih.";
         } else {
             $hasil = "Tidak Diketahui/Anda baik-baik saja";
             $saran = "Tidak ada";
         }
 
-        return $hasil;
+        return $saran;
         $diagnosis = Diagnosis::create([
             'user_id'           => $request->user_id,
             'nama_pasien'       => $request->nama_pasien,
@@ -112,6 +113,31 @@ class DiagnosisController extends Controller
             'hasil'             => $hasil,
             'saran'             => $saran
         ]);
+
+        $answer = new Answer();
+        $answer->id_diagnosis   = $diagnosis["id"];
+        $answer->g001           = $G001;
+        $answer->g002           = $G002;
+        $answer->g003           = $G003;
+        $answer->g004           = $G004;
+        $answer->g005           = $G005;
+        $answer->g006           = $G006;
+        $answer->g007           = $G007;
+        $answer->g008           = $G008;
+        $answer->g009           = $G009;
+        $answer->g010           = $G010;
+        $answer->g011           = $G011;
+        $answer->g012           = $G012;
+        $answer->g013           = $G013;
+        $answer->g014           = $G014;
+        $answer->g015           = $G015;
+        $answer->g016           = $G016;
+        $answer->g017           = $G017;
+        $answer->g018           = $G018;
+        $answer->g019           = $G019;
+        $answer->g020           = $G020;
+        $answer->g021           = $G021;
+        $answer->save();
 
         return redirect()->route('admin.diagnoses.index')
             ->with('success', 'Diagnosis created successfully.');

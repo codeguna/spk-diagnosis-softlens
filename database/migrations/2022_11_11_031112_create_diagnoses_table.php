@@ -21,7 +21,7 @@ class CreateDiagnosesTable extends Migration
             $table->text('alamat');
             $table->date('tanggal');
             $table->string('hasil');
-            $table->string('saran');
+            $table->text('saran');
             $table->timestamps();
         });
     }
