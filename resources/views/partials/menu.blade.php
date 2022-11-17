@@ -25,7 +25,7 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route('admin.diseases.index') }}"
-                    class="nav-link {{ request()->is('admin/diagnoses') || request()->is('admin/diagnoses/*') ? 'active' : '' }}">
+                    class="nav-link {{ request()->is('admin/diseases') || request()->is('admin/diseases/*') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-search"></i>
                     Penyakit
                 </a>

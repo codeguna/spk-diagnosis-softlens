@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Answer;
 use App\Models\Diagnosis;
+use App\Models\Disease;
 use App\Models\Question;
 use Illuminate\Http\Request;
 
@@ -35,8 +36,8 @@ class DiagnosisController extends Controller
     {
 
         $questions = Question::all();
-
-        return view('diagnosis.create', compact('questions'))->with('i');
+        $diseases = Disease::orderBy('diseases_code', 'ASC')->pluck('name', 'diseases_code');
+        return view('diagnosis.create', compact('questions', 'diseases'))->with('i');
     }
 
     /**
