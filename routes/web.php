@@ -17,4 +17,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::delete('users_mass_destroy', 'Admin\UsersController@massDestroy')->name('users.mass_destroy');
     Route::resource('questions', 'QuestionController');
     Route::resource('diagnoses', 'DiagnosisController');
+    Route::resource('diseases', 'DiseaseController');
 });

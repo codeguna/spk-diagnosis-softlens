@@ -1,5 +1,7 @@
 <?php
 
+use Database\Seeders\DiseaseSeed;
+use Database\Seeders\QuestionSeed;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeed::class);
         $this->call(UserSeed::class);
         $this->call(QuestionSeed::class);
+        $this->call(DiseaseSeed::class);
     }
 }

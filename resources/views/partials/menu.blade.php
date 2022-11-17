@@ -23,6 +23,13 @@
                     Diagnosis
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.diseases.index') }}"
+                    class="nav-link {{ request()->is('admin/diagnoses') || request()->is('admin/diagnoses/*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-search"></i>
+                    Penyakit
+                </a>
+            </li>
             @can('users_manage')
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link  nav-dropdown-toggle" href="#">

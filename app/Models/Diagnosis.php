@@ -42,7 +42,7 @@ class Diagnosis extends Model
    *
    * @var array
    */
-  protected $fillable = ['user_id', 'nama_pasien', 'jenis_kelamin', 'alamat', 'tanggal', 'hasil', 'saran'];
+  protected $fillable = ['user_id', 'nama_pasien', 'jenis_kelamin', 'alamat', 'tanggal', 'hipotesa_awal', 'hasil', 'saran'];
 
 
   /**

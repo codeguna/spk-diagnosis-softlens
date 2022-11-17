@@ -20,6 +20,7 @@ class CreateDiagnosesTable extends Migration
             $table->string('jenis_kelamin');
             $table->text('alamat');
             $table->date('tanggal');
+            $table->string('hipotesa_awal');
             $table->string('hasil');
             $table->text('saran');
             $table->timestamps();
