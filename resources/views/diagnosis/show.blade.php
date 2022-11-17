@@ -49,9 +49,10 @@
                                 </div>
                             </div>
                         </div>
-
-
-
+                        <div class="form-group">
+                            <strong>Hipotesa Awal:</strong>
+                            {{ $diagnosis->hipotesa_awal }}
+                        </div>
                         <div class="form-group">
                             <strong>Hasil:</strong>
                             {{ $diagnosis->hasil }}

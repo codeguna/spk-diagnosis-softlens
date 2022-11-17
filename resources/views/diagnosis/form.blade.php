@@ -37,7 +37,7 @@
     @foreach ($diseases as $value => $key)
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="hipotesa_awal" id="{{ $value }}"
-                value="{{ $value }}" onclick="{{ strtolower($value) }}()">
+                value="{{ $key }}" onclick="{{ strtolower($value) }}()">
             <label class="form-check-label">{{ $key }} ({{ $value }})</label>
         </div>
     @endforeach

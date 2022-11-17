@@ -111,6 +111,7 @@ class DiagnosisController extends Controller
             'jenis_kelamin'     => $request->jenis_kelamin,
             'alamat'            => $request->alamat,
             'tanggal'           => $request->tanggal,
+            'hipotesa_awal'     => $request->hipotesa_awal,
             'hasil'             => $hasil,
             'saran'             => $saran
         ]);

@@ -31,6 +31,7 @@ class Diagnosis extends Model
     'jenis_kelamin' => 'required',
     'alamat' => 'required',
     'tanggal' => 'required',
+    'tanggal' => 'hipotesa_awal',
     'hasil' => 'required',
     'saran' => 'required',
   ];
