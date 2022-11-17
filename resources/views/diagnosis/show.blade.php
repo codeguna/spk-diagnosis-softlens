@@ -6,10 +6,10 @@
 
 @section('content')
     <section class="content container-fluid">
-        <div class="card mb-3" style="max-width: 1200px;">
+        <div class="card mb-3" style="max-width: 1200px;border-radius: 10px">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="https://images.pexels.com/photos/5407222/pexels-photo-5407222.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    <img src="https://images.pexels.com/photos/5407205/pexels-photo-5407205.jpeg?auto=compress&cs=tinysrgb&w=600"
                         class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
@@ -22,7 +22,6 @@
                         </h5>
                     </div>
                     <div class="card-body">
-
                         <h6>Hipotesa awal: {{ $diagnosis->hipotesa_awal }}</h6>
                         <h6>Hipotesa akhir: {{ $diagnosis->hasil }}</h6>
                         <p class="card-text"><strong>Saran:</strong> {{ $diagnosis->saran }}</p>
