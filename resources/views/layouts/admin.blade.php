@@ -223,26 +223,26 @@
 
         function d009() {
             document.getElementById("G001").style.display = 'none';
-            document.getElementById("G002").style.display = 'block';
+            document.getElementById("G002").style.display = 'none';
             document.getElementById("G003").style.display = 'none';
             document.getElementById("G004").style.display = 'none';
             document.getElementById("G005").style.display = 'none';
             document.getElementById("G006").style.display = 'none';
             document.getElementById("G007").style.display = 'none';
-            document.getElementById("G008").style.display = 'none';
+            document.getElementById("G008").style.display = 'block';
             document.getElementById("G009").style.display = 'none';
             document.getElementById("G010").style.display = 'none';
             document.getElementById("G011").style.display = 'none';
-            document.getElementById("G012").style.display = 'block';
+            document.getElementById("G012").style.display = 'none';
             document.getElementById("G013").style.display = 'none';
             document.getElementById("G014").style.display = 'none';
             document.getElementById("G015").style.display = 'block';
             document.getElementById("G016").style.display = 'none';
-            document.getElementById("G017").style.display = 'block';
-            document.getElementById("G018").style.display = 'block';
+            document.getElementById("G017").style.display = 'none';
+            document.getElementById("G018").style.display = 'none';
             document.getElementById("G019").style.display = 'none';
             document.getElementById("G020").style.display = 'none';
-            document.getElementById("G021").style.display = 'block';
+            document.getElementById("G021").style.display = 'none';
         }
 
         function d010() {
