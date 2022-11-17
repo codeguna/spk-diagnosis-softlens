@@ -40,13 +40,14 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title text-danger"><i class="fas fa-eye"></i> {{ $diagnosis->hasil }}</h5>
-                            <p class="card-text fst-italic"><i class="fas fa-home"></i> Alamat: {{ $diagnosis->alamat }}</p>
+                            <h5 class="card-title text-danger">{{ $diagnosis->hasil }}</h5>
+                            <p class="card-text fst-italic text-muted"><i class="fas fa-home"></i> Alamat:
+                                {{ $diagnosis->alamat }}</p>
                             <a href="{{ route('admin.diagnoses.show', $diagnosis->id) }}" class="btn btn-primary"><i
                                     class="fas fa-book"></i> Hasil Diagnosa</a>
                         </div>
                         <div class="card-footer text-muted">
-                            <i class="fas fa-clock"></i> {{ $diagnosis->created_at }}
+                            <i class="fas fa-clock"></i> Diagnosis Created {{ $diagnosis->created_at }}
                         </div>
                     </div>
                 </div>
