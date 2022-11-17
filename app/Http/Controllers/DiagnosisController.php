@@ -101,7 +101,7 @@ class DiagnosisController extends Controller
             $hasil = "Giant Papilary Conjunctivitas";
             $saran = "Pastikan Anda tidak mengucek mata terlebih bila belum cuci tangan, hindari menggunakan obat mata tanpa melakukan pemeriksaan ke dokter, konsumsi makann bergizi, jaga keberishan diri dan lingkungan dan pastikan sirkulasi udara di rumah Anda bersih.";
         } else {
-            $hasil = "Tidak Diketahui/Anda baik-baik saja";
+            $hasil = "Tidak Cocok";
             $saran = "Tidak ada";
         }
 

@@ -6,62 +6,32 @@
 
 @section('content')
     <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
+        <div class="card mb-3" style="max-width: 1200px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://images.pexels.com/photos/5407222/pexels-photo-5407222.jpeg?auto=compress&cs=tinysrgb&w=600"
+                        class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Diagnosis</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('admin.diagnoses.index') }}"> Back</a>
-                        </div>
+                        <h5 class="card-title">{{ $diagnosis->nama_pasien }} - @if ($diagnosis->jenis_kelamin == 0)
+                                Perempuan
+                            @else
+                                Laki-laki
+                            @endif
+                        </h5>
                     </div>
-
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <strong>Nama Pasien:</strong>
-                                    {{ $diagnosis->nama_pasien }}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <strong>Jenis Kelamin:</strong>
-                                    @if ($diagnosis->jenis_kelamin == 0)
-                                        Perempuan
-                                    @else
-                                        Laki-laki
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <strong>Alamat:</strong>
-                                    {{ $diagnosis->alamat }}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <strong>Tanggal:</strong>
-                                    {{ $diagnosis->tanggal }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <strong>Hipotesa Awal:</strong>
-                            {{ $diagnosis->hipotesa_awal }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Hasil:</strong>
-                            {{ $diagnosis->hasil }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Saran:</strong>
-                            {{ $diagnosis->saran }}
-                        </div>
 
+                        <h6>Hipotesa awal: {{ $diagnosis->hipotesa_awal }}</h6>
+                        <h6>Hipotesa akhir: {{ $diagnosis->hasil }}</h6>
+                        <p class="card-text"><strong>Saran:</strong> {{ $diagnosis->saran }}</p>
+
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text text-muted">
+                            <i class="fa fa-calendar"> Tanggal Pemeriksaan: {{ $diagnosis->tanggal }}</i>
+                        </p>
                     </div>
                 </div>
             </div>
